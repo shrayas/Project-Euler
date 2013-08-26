@@ -1,11 +1,28 @@
 #!/usr/bin/python
 
 import sys
+import random
+import fractions
 
-print sys.argv[1]
+def factorize(num):
+    for i in range(2,num/2):
+        if (num%i == 0):
+            print i
 
-num = int(sys.argv[1])
+def pollandroh(num):
+    if num%2 == 0:
+        return 2
 
-for i in range(2,num/2):
-    if (num%i == 0):
-        print i
+    x = random.randint(1, num-1)
+    y = x
+
+    c = random.randint(1, num-1)
+
+    g = 1
+
+    while g == 1:
+        x = ((x*x)%num + c) % num
+        y = ((y*y)%num + c) % num
+        y = ((y*y)%num + c) % num
+        g = fractions.gcd(abs(x-y),num)
+    return g
