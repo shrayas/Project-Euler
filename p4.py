@@ -7,11 +7,18 @@ largest=0
 largestI=0
 largestJ=0
 
+iterationCount=0
+
 for i in reversed(range(100,1000)):
 
     j = 990
 
+    if i < j:
+        break;
+
     while j >= 100:
+
+        iterationCount = iterationCount + 1
 
         num = i*j
 
@@ -25,3 +32,4 @@ for i in reversed(range(100,1000)):
 
 print largest
 print str(largestI) + " X " + str(largestJ)
+print iterationCount
