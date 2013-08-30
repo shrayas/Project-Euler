@@ -9,7 +9,7 @@ def factorize(num):
         if (num%i == 0):
             print i
 
-def pollandroh(num):
+def pollandsRho(num):
     if num%2 == 0:
         return 2
 
