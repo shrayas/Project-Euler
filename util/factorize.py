@@ -10,6 +10,10 @@ def factorize(num):
             print i
 
 def pollardsRho(num):
+
+    if num == 1:
+        return 1
+
     if num%2 == 0:
         return 2
 
