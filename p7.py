@@ -6,34 +6,38 @@ What is the 10001st prime number?
 import math
 import sys
 
-def isPrime(num,previousPrimes):
-
-    isPrimeFlag = True
-
-    if len(previousPrimes) == 0:
-        return isPrimeFlag
-
-    for previousPrime in previousPrimes:
-        if num % previousPrime == 0:
-            isPrimeFlag = False
-            break
-
-    return isPrimeFlag
-
-primeToFind = int(sys.argv[1])
-primesTillNow = []
-
-i = 2
-while True:
-    isPrimeFlag = isPrime(i,primesTillNow)
-
-    if isPrimeFlag == True:
-        primesTillNow.append(i)
-
-    if len(primesTillNow) != primeToFind:
-        i = i+1
+def isPrime(num):
+    if num == 1:
+        return False
+    elif num < 4:
+        return True
+    elif num % 2 == 0:
+        return False
+    elif num < 9:
+        return True
+    elif num % 3 == 0:
+        return False
     else:
-        break
+        
+        r = math.floor(math.sqrt(num))
+        f = 5
 
-print primesTillNow[-1]
-print len(primesTillNow)
+        while f <= r:
+            if num % f == 0:
+                return False
+            if num % (f+2) == 0:
+                return False
+            f = f+6
+
+        return True
+
+limit=10001
+count=1
+candidate=1
+
+while count != limit:
+    candidate = candidate + 2
+    if isPrime(candidate):
+        count = count+1
+
+print candidate
