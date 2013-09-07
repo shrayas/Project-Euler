@@ -45,8 +45,4 @@ while maxProductNos != 0:
     product *= (maxProductNos%10)
     maxProductNos /= 10
 
-print "--"
-print backupMaxProductNos
-print maxSum
-print "*"+str(product)
-print count,zcount
+print product
